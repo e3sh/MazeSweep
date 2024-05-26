@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src= "https://e3sh.github.io/WebGameCoreSystem/coremin.js" type="text/javascript"></script>
+    <script src=    "main.js"       type="text/javascript"></script>
+    <script src="GameTaskMain.js"   type="text/javascript"></script>
+    <script src="GameScene.js"      type="text/javascript"></script>
+    <script src="SceneCollection.js" type="text/javascript"></script>
+    <script src="GameObjUnit.js" type="text/javascript"></script>
+    <script src="StageControl.js"   type="text/javascript"></script>
+    <script src="mazemake.js"   type="text/javascript"></script>
+    <script src="routecheck.js"   type="text/javascript"></script>
+    <script type="text/javascript">
+        function autorun(){
+            document.getElementById("layer0").style.display = "none";
+        }
+    
+        function page_start(){
+    
+            document.getElementById("layer0").style.display = "";
+            document.getElementById("btn").style.display = "none";
+            //document.getElementById("message").style.display = "none";
+            main();
+        }
+        </script>
+    <title>MAZE_SWEEP</title>
+    <style>
+        * {
+            margin:0; padding:0;
+        } 
+        .resizeimage * { width: 100%; }
+    </style>
+</head>
+<body onload="autorun()">
+    <canvas id="layer0" oncontextmenu="return false;">
+    layer-0
+    </canvas>
+    <div id="message">
+        <br>
+		MAZE SWEEP PRACTICE<br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        キーボード:HomeキーまたはゲームパッドのBACKボタンで全画面表示<br>
+		<br>
+        ユーザー操作で起動しないとオーディオが有効にならない<br>
+        というブラウザの制限があるので下のボタンで起動してください。<br>
+        <br>
+        Button Click to Start<br>
+    </div>
+    <input type="button" id="btn" value="GAME START" onclick="page_start()">
+</body>
+</html>
