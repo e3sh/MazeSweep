@@ -44,7 +44,7 @@ function mazemake( w , h){
         for (let i=1; i<MAP_H; i+=2){
             for (let j=1; j<MAP_W; j+=2){
 
-                //map_wall[i][j]   = false;
+                map_wall[i][j]   = false;
                 map_floor[i][j]   = false;
             }   
         }

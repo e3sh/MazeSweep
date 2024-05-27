@@ -145,6 +145,7 @@ function SceneTitle(){
 		let rf = false;
 		if (delay){
 			if (input.trigger) rf = true;
+            if (input.mouse.button != -1) rf = true;
 		}	
 		return rf;
 	}

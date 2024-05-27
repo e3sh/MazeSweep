@@ -136,7 +136,7 @@ function GameObjectUnit(game){
                 //map.unit[this.y][this.x] = this; 
                 //}
             }
-            mov.cnt--;
+            mov.cnt-=3;
             vx = mov.vx;
             vy = mov.vy;
 
@@ -191,7 +191,9 @@ function GameObjectUnit(game){
         let wx = Math.trunc(this.x);
         let wy = Math.trunc(this.y);
 
-        let mvcol   = (this.select)?"yellow":"orange";
+        let r = route.result();
+
+        let mvcol   = (this.select)?"yellow":(r.length < 24)?"red":"orange";
         let col     = (this.select)?"yellow":(map.wall[wy][wx])?"red":"white";
 
         if (this.running){//(mov.cnt > 0){
@@ -199,10 +201,12 @@ function GameObjectUnit(game){
         }else{
             g.screen[0].fill(wx*16, wy*16, 15,15,	col);
         }
-        let r = route.result();
-        for (let i in r){
-            let st = Number(i).toString(36);
-            g.font["std"].putchr(st,r[i].x*16 ,r[i].y*16);
+        //let r = route.result();
+        if (r.length < 24){
+            for (let i in r){
+                let st = Number(i).toString(36);
+                g.font["std"].putchr(st,r[i].x*16 +5 ,r[i].y*16 +4);
+            }
         }
     }
 }

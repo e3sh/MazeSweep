@@ -176,8 +176,6 @@ function SceneGame(){
 		laplist = [];
 		for (let i in GObj){
 			let o = GObj[i];
-			o.step(g, input, result);
-			o.step(g, input, result);
 			//if (o.living) {
 				o.step(g, input, result);
 			//}else{
@@ -196,7 +194,7 @@ function SceneGame(){
 
 		if (delay < g.time()) {
 
-			delay = g.time()+100;
+			delay = g.time()+250;
 			//spriteTable = flashsp(spriteTable);
 
 			ene.before = ene.now;
@@ -285,7 +283,7 @@ function SceneGame(){
 				note[0].play(s, g.time());
 			}
 
-			if (ec < 25){
+			if (ec < 31){
 				const W_MAX = Math.trunc(g.RESO_X/32)-1;
 				const H_MAX = Math.trunc(g.RESO_Y/32)-1;
 
@@ -536,7 +534,15 @@ function SceneGame(){
 				//if (o.living) o.draw(g);
 
 				//if (o.living) st.push(((o.living)?"L":"-") + ((o.running)?"R":"-") + " x:" + o.x + " y:" + o.y);
-				if (o.living) st.push("[.x:" + o.x + ".y:" + o.y + "]");
+				if (o.living) {
+					st.push(
+					"[.x:"	+ (o.x.toString() + "_").substring(0,2) 
+					+ ".y:" + (o.y.toString() + "_").substring(0,2)
+					+ "]");
+				}else{
+					//st.push("[.x:__.y:__]");
+				}
+				
 			}
 			let ec = 0;
 			for (let o of GObj) if (o.living) ec++;
